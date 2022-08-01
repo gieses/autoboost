@@ -91,7 +91,7 @@ clf = bo.fit(x_train, y_train)
 ```
 
 Please the example file for a full working example for [regression](example/regression_diamonds.py)
-and [classification](subpro/classifciation_iris.py)
+and [classification](example/classification_iris.py).
 
 ## Sources
 
