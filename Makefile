@@ -18,15 +18,16 @@ badges:									## make the coverage badge
 	genbadge flake8 -i .github/imgs/flake8stats.txt -o .github/imgs/flake8.svg
 	genbadge tests -i .github/imgs/junit/junit.xml -o .github/imgs/tests.svg
 
-dist: clean			      ## build the package
-	python setup.py sdist bdist_wheel
 
-pypi:				      ## prepare pypi release
+pypi: clean				      ## prepare pypi release
 	pip install twine
-	python setup.py sdist
+	python setup.py sdist bdist_wheel
 	twine upload dist/*
 
 clean:                                ## clean up - remove docs, dist and build
-	rm -r docs/build
-	rm -r dist
-	rm -r build
+	rm -f -r dist
+	rm -f -r htmlcov
+	rm -f -r build
+
+# conda packaging
+# https://blog.gishub.org/how-to-publish-a-python-package-on-conda-forge

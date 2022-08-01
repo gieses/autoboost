@@ -1,21 +1,21 @@
 
-![tag](https://flat.badgen.net/github/tag/gieses/autoboost)
-[![GitHub](https://flat.badgen.net/github/license/gieses/autoboost)](https://github.com/gieses/autoboost)
+![release](https://img.shields.io/github/v/release/gieses/autoboost)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 [![Twitter](https://flat.badgen.net/twitter/follow/SvenHGiese?icon=twitter)](https://twitter.com/SvenHGiese/)
 [![Python 3.9](https://img.shields.io/badge/python-3.9-blue.svg)](https://www.python.org/downloads/release/python-390/)
-![PyPI version](https://flat.badgen.net/pypi/v/autoboost)
+![PyPI version](https://img.shields.io/pypi/v/autoboost)
 ![coverage](.github/imgs/coverage.svg)
 
 ## autoboost
 
-Automatic step-wise parameter optimization for xgboost.
+Automatic step-wise parameter optimization for xgboost, lightgbm and sklearn's GradingBoosting.
 
 ### Implemented Strategy
 
 The optimization strategy is taken
 from [SylwiaOliwia](https://github.com/SylwiaOliwia2/xgboost-AutoTune#xgboost-autotune).
-We only incorporate a slight change that we base all decision on the cross-validation
-test folds and not the entire data set. Therefore, we also do not refit the model during the grid-search.
+We only incorporate slight changes to the implementation, e.g. we base all decision on the cross-validation
+test folds and not the entire data set.
 
 The following excerpt is also taken from the readme:
 
@@ -78,7 +78,7 @@ n* `n_estimators` , `learning_rate`/ n ).
 autoboost is available on PyPi and conda. You can easily install the package via:
 
 ```console
-conda install autoboost
+conda install -c conda-forge autoboost
 ```
 
 or alternatively via pip:
