@@ -21,7 +21,7 @@ DESCRIPTION = \
 URL_GITHUB = "https://gitlab.hpi.de/deepsim/simdeep"
 URL_ISSUES = "https://gitlab.hpi.de/deepsim/simdeep/-/issues"
 EMAIL = 'sven.giese88@gmail.com'
-REQUIRES_PYTHON = '>=3.7'
+REQUIRES_PYTHON = '>=3.10'
 KEYWORDS = ["xgboost", "lightgbm", "sklearn", "optimization"]
 # What packages are required for this module to be executed?
 REQUIRED = ['xgboost', 'lightgbm', 'scikit-learn', 'seaborn', 'matplotlib', 'numpy', 'tqdm']
