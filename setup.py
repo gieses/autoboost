@@ -21,7 +21,7 @@ DESCRIPTION = \
 URL_GITHUB = "https://gitlab.hpi.de/deepsim/simdeep"
 URL_ISSUES = "https://gitlab.hpi.de/deepsim/simdeep/-/issues"
 EMAIL = 'sven.giese88@gmail.com'
-REQUIRES_PYTHON = '>=3.10'
+REQUIRES_PYTHON = '>=3.9'
 KEYWORDS = ["xgboost", "lightgbm", "sklearn", "optimization"]
 # What packages are required for this module to be executed?
 REQUIRED = ['xgboost', 'lightgbm', 'scikit-learn', 'seaborn', 'matplotlib', 'numpy', 'tqdm']
@@ -80,6 +80,7 @@ setup(
         # Trove classifiers
         # Full list: https://pypi.python.org/pypi?%3Aaction=list_classifiers
         'Programming Language :: Python',
+        'Programming Language :: Python :: 3.9',
         'Programming Language :: Python :: 3.10',
         'Programming Language :: Python :: Implementation :: PyPy'
         'Topic :: Scientific/Engineering :: Artificial Intelligence'
