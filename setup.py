@@ -24,7 +24,7 @@ EMAIL = 'sven.giese88@gmail.com'
 REQUIRES_PYTHON = '>=3.7'
 KEYWORDS = ["xgboost", "lightgbm", "sklearn", "optimization"]
 # What packages are required for this module to be executed?
-REQUIRED = ['xgboost', 'lightgbm', 'scikit-learn', 'seaborn']
+REQUIRED = ['xgboost', 'lightgbm', 'scikit-learn', 'seaborn', 'matplotlib', 'numpy', 'tqdm']
 
 AUTHOR = "Sven Giese"
 # What packages are optional?
