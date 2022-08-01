@@ -10,23 +10,20 @@ import os
 from setuptools import find_packages, setup
 from autoboost import __version__
 
-
 # Package meta-data.
 NAME = 'autoboost'
 DESCRIPTION = \
     'A thin wrapper for step-wise parameter optimization of boosting algorithms.'
 
-# TODO
-# URL_DOKU = "https://gitlab.hpi.de/deepsim/simdeep"
-URL_GITHUB = "https://gitlab.hpi.de/deepsim/simdeep"
-URL_ISSUES = "https://gitlab.hpi.de/deepsim/simdeep/-/issues"
+URL_GITHUB = "https://github.com/gieses/autoboost"
+URL_ISSUES = "https://github.com/gieses/autoboost/issues"
 EMAIL = 'sven.giese88@gmail.com'
 REQUIRES_PYTHON = '>=3.9'
 KEYWORDS = ["xgboost", "lightgbm", "sklearn", "optimization"]
 # What packages are required for this module to be executed?
 REQUIRED = ['xgboost', 'lightgbm', 'scikit-learn', 'seaborn', 'matplotlib', 'numpy', 'tqdm']
 
-AUTHOR = "Sven Giese"
+AUTHOR = "Sven H. Giese"
 # What packages are optional?
 EXTRAS = {}
 
@@ -48,7 +45,6 @@ except FileNotFoundError:
 # Load the package's _version.py module as a dictionary.
 about = {}
 project_slug = "autoboost"
-
 
 # Where the magic happens:
 setup(
@@ -83,6 +79,5 @@ setup(
         'Programming Language :: Python :: 3.9',
         'Programming Language :: Python :: 3.10',
         'Programming Language :: Python :: Implementation :: PyPy'
-        'Topic :: Scientific/Engineering :: Artificial Intelligence'
     ],
 )

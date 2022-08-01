@@ -21,3 +21,5 @@ dependencies:
 
 pip:
   - pytest-pydocstyle
+  - flake8-html
+  - genbadge

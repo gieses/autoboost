@@ -159,6 +159,9 @@ out/
 .DS*
 .idea*
 .idea/*
+.github/imgs/*.html
+.github/imgs/*.txt
+.github/imgs/*.css
 # mpeltonen/sbt-idea plugin
 .idea_modules/
 
