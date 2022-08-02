@@ -117,7 +117,7 @@ class BoostingOptimizer:
         self.available_params = list(initial_model.get_params().keys())
         self.best_params = initial_model.get_params()
         # FIXME: add random_sate, see for later xgboost release if it works.
-        self.best_params.update({"random_state": seed})
+        self.best_params.update({"random_state": seed, "n_jobs": n_jobs})
 
         # optimization parameters
         self.scorer = scorer
