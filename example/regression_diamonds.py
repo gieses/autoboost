@@ -37,7 +37,6 @@ y = y.reset_index(drop=True)
 nfolds = 3
 verbose = -1
 
-
 x_train, x_test, y_train, y_test = model_selection.train_test_split(X, y, random_state=1)
 mse_scorer = make_scorer(mean_squared_error, greater_is_better=False)
 

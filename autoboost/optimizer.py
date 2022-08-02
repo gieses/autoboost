@@ -181,7 +181,7 @@ class BoostingOptimizer:
             self.best_params['n_estimators'] * self.factors,
             self.best_params['learning_rate'] / self.factors)]
         clf = GridSearchCV(model, final_param_sweep, scoring=self.scorer, verbose=self.verbose, cv=self.n_folds,
-                           refit=True)
+                           refit=True, n_jobs=self.n_jobs_grid)
         clf.fit(X, y)
         if self.verbose:
             print(f"final sweep best params: {clf.best_params_}")
@@ -241,7 +241,8 @@ class BoostingOptimizer:
 
         if self.verbose:
             print(f"Find best parameters, Trial: #{trial}, Grid: ", parameters)
-        clf = GridSearchCV(model, parameters, scoring=self.scorer, verbose=self.verbose, cv=self.n_folds, refit=True)
+        clf = GridSearchCV(model, parameters, scoring=self.scorer, verbose=self.verbose, cv=self.n_folds, refit=True,
+                           n_jobs=self.n_jobs_grid)
         clf.fit(x_train, y_train)
 
         # scoring fun for regression / classification tasks
