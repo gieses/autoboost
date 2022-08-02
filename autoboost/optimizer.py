@@ -52,6 +52,7 @@ class BoostingOptimizer:
                  n_jobs: int = -1,
                  n_jobs_grid: int = 1,
                  verbose: int = 0,
+                 factors: list[int] = None,
                  seed: int = 2022):
         """
         Optimizer for gradient boosting.
@@ -76,6 +77,11 @@ class BoostingOptimizer:
             n_jobs to runi n parallel (supplied to gradient boosting machine)
         n_jobs_grid: int,
             n:jobs to run in parallel (supplied to gridsearch)
+        factors: list[int],
+            after the initial parameter sweeps, a final combined sweep of increasing number of treas and decreasing
+            learning rate is done. The factors define the size of this list. For example, if the best found hyper-
+            parameter for number of trees was 10 and factors is [5, 10], the grid search is again performed with
+            50 and 100 trees (similarly with the learning rate).
         verbose: int,
             verbosity of the optimization (disable to -1).
         """
@@ -126,6 +132,13 @@ class BoostingOptimizer:
 
         self.cv_results = []
         self.model = None
+        if isinstance(factors, np.ndarray):
+            pass
+        elif isinstance(factors, list):
+            factors = np.array(factors)
+        else:
+            factors = np.array([1, 5, 10, 15])
+        self.factors = factors
 
     def fit(self, X, y) -> Any:
         """
@@ -164,10 +177,9 @@ class BoostingOptimizer:
         if self.best_params['learning_rate'] is None:
             self.best_params['learning_rate'] = 0.3
 
-        factors = np.array([1, 2, 4, 8, 15, 25])
         final_param_sweep = [{"n_estimators": [i], "learning_rate": [j]} for i, j in zip(
-            self.best_params['n_estimators'] * factors,
-            self.best_params['learning_rate'] / factors)]
+            self.best_params['n_estimators'] * self.factors,
+            self.best_params['learning_rate'] / self.factors)]
         clf = GridSearchCV(model, final_param_sweep, scoring=self.scorer, verbose=self.verbose, cv=self.n_folds,
                            refit=True)
         clf.fit(X, y)

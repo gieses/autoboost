@@ -28,6 +28,15 @@ def test_optimizer():
     with pytest.raises(ValueError):
         _ = BoostingOptimizer(initial_params_dict="supermegalarge")
 
+    bo = BoostingOptimizer(initial_params_dict="small")
+    assert np.allclose(bo.factors, np.array([1, 5, 10, 15]))
+
+    bo = BoostingOptimizer(initial_params_dict="small", factors=[1, 2])
+    assert np.allclose(bo.factors, np.array([1, 2]))
+
+    bo = BoostingOptimizer(initial_params_dict="small", factors=np.array([1, 2]))
+    assert np.allclose(bo.factors, np.array([1, 2]))
+
 
 def test_fit_xgboost():
     x = pd.DataFrame()
